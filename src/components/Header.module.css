@@ -1,0 +1,74 @@
+.header {
+    background-color: var(--color-bg-white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoText {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.logoTextBold {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+}
+
+.nav {
+    display: none;
+}
+
+.authButtons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.loginBtn {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-text-main);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+.loginBtn:hover {
+    color: var(--color-primary);
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .nav {
+        display: block;
+    }
+
+    .navList {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navItem a {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: var(--color-text-main);
+    }
+
+    .navItem a:hover {
+        color: var(--color-primary);
+    }
+}
