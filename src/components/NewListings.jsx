@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Optimized images
+import { useSession } from 'next-auth/react';
+import QuickViewModal from './QuickViewModal';
 import styles from './NewListings.module.css';
 
 export default function NewListings() {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [favorites, setFavorites] = useState([]);
+  const [quickViewProperty, setQuickViewProperty] = useState(null);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const fetchProperties = async () => {
@@ -25,8 +29,48 @@ export default function NewListings() {
       }
     };
 
+    const fetchFavorites = async () => {
+      if (session?.user) {
+        try {
+          const res = await fetch('/api/user/favorites');
+          if (res.ok) {
+            const data = await res.json();
+            setFavorites(data);
+          }
+        } catch (err) {
+          console.error("Error fetching favorites", err);
+        }
+      }
+    };
+
     fetchProperties();
-  }, []);
+    fetchFavorites();
+  }, [session]);
+
+  const toggleFavorite = async (propertyId) => {
+    if (!session) {
+      alert("Veuillez vous connecter pour ajouter aux favoris.");
+      return;
+    }
+
+    // Optimistic update
+    const isFav = favorites.includes(propertyId);
+    setFavorites(prev => isFav ? prev.filter(id => id !== propertyId) : [...prev, propertyId]);
+
+    try {
+      const res = await fetch('/api/user/favorites', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ propertyId })
+      });
+      if (!res.ok) {
+        // Revert if failed
+        setFavorites(prev => isFav ? [...prev, propertyId] : prev.filter(id => id !== propertyId));
+      }
+    } catch (err) {
+      console.error("Error toggling favorite", err);
+    }
+  };
 
   if (loading) {
     return (
@@ -98,8 +142,21 @@ export default function NewListings() {
               </div>
 
               <div className={styles.actions}>
-                <Link href={`/properties/${property._id}`} className={styles.actionBtn}>🔍</Link>
-                <button className={styles.actionBtn}>❤️</button>
+                <button
+                  onClick={() => setQuickViewProperty(property)}
+                  className={styles.actionBtn}
+                  title="Aperçu rapide"
+                >
+                  🔍
+                </button>
+                <button
+                  onClick={() => toggleFavorite(property._id)}
+                  className={`${styles.actionBtn} ${favorites.includes(property._id) ? styles.activeFavorite : ''}`}
+                  title={favorites.includes(property._id) ? "Retirer des favoris" : "Ajouter aux favoris"}
+                  style={favorites.includes(property._id) ? { color: '#ED6C63', borderColor: '#ED6C63' } : {}}
+                >
+                  {favorites.includes(property._id) ? '❤️' : '🤍'}
+                </button>
               </div>
             </div>
           ))}
@@ -114,6 +171,13 @@ export default function NewListings() {
           <Link href="/properties?type=rent" className={styles.catBtn}>🔍 Voir les biens en location</Link>
         </div>
       </div>
+
+      {quickViewProperty && (
+        <QuickViewModal
+          property={quickViewProperty}
+          onClose={() => setQuickViewProperty(null)}
+        />
+      )}
     </section>
   );
 }
