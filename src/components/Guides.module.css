@@ -1,0 +1,120 @@
+.section {
+    background-color: white;
+    padding-bottom: 6rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subTitle {
+    font-family: var(--font-heading);
+    color: var(--color-text-light);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.title {
+    color: var(--color-text-heading);
+    font-size: 2.2rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    border-radius: 12px;
+    height: 300px;
+    /* Fixed height for uniformity */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.pink {
+    background-color: #FCE4E1;
+    /* Light pink */
+}
+
+.teal {
+    background-color: #D6EFEC;
+    /* Light teal */
+}
+
+.cardContent {
+    z-index: 2;
+}
+
+.cardTitle {
+    font-size: 1.8rem;
+    color: #ED6C63;
+    /* Coral text for all titles per screenshot styles usually, or specific? */
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    white-space: pre-line;
+    /* Handle \n */
+}
+
+/* Specific overrides if needed based on screenshot */
+.teal .cardTitle {
+    color: #76C5BA;
+}
+
+.button {
+    background-color: #ED6C63;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.teal .button {
+    background-color: #76C5BA;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+/* Decorative pseudo-elements to mimic the hills/clouds */
+.decoration {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -20px;
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 1;
+}

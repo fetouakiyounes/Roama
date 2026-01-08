@@ -1,0 +1,62 @@
+.section {
+    padding: 60px 0;
+    background: #FEF7F6;
+    /* Light pink background */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.image {
+    max-width: 300px;
+    height: auto;
+}
+
+.title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.faqBtn,
+.contactBtn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.contactBtn:hover,
+.faqBtn:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+}

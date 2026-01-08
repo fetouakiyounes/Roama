@@ -1,0 +1,24 @@
+.decorationContainer {
+    position: fixed;
+    bottom: 0;
+    right: 170px;
+    /* Offset from chat widget */
+    z-index: 10;
+    pointer-events: none;
+    /* Let clicks pass through if needed */
+    display: none;
+    /* Default hidden on mobile */
+}
+
+@media (min-width: 1024px) {
+    .decorationContainer {
+        display: block;
+    }
+}
+
+.illustration {
+    width: 200px;
+    /* Adjust size as needed */
+    height: auto;
+    opacity: 0.9;
+}

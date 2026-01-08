@@ -1,0 +1,61 @@
+.hero {
+    background-color: #FEF7F6;
+    /* Light peach/pink bg from screenshot */
+    padding: 80px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-family: var(--font-heading);
+    color: #3C3C3B;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: #ED6C63;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #3C3C3B;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.imageWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.heroImage {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+}

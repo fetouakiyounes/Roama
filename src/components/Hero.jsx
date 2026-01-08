@@ -5,15 +5,28 @@ import styles from './Hero.module.css';
 export default function Hero() {
     const [activeTab, setActiveTab] = useState('vente'); // 'vente' or 'location'
 
+    const handleLocationClick = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                alert(`Position trouvée: ${position.coords.latitude}, ${position.coords.longitude}`);
+                // In a real app, we'd reverse geocode this to a city name
+            }, () => {
+                alert("Impossible de récupérer votre position.");
+            });
+        } else {
+            alert("La géolocalisation n'est pas supportée par votre navigateur.");
+        }
+    };
+
     return (
         <section className={styles.hero}>
             <div className={`container ${styles.container}`}>
                 <h1 className={styles.title}>
-                    Le n°1 de l’immobilier entre particuliers au Luxembourg
+                    Le portail n°1 de l’immobilier<br />au Luxembourg
                 </h1>
-                <p className={styles.subtitle}>
-                    Achetez, Vendez, Louez sans commission.
-                </p>
+                <div className={styles.subtitle}>
+                    ENTRE PARTICULIERS
+                </div>
 
                 <div className={styles.searchWidget}>
                     <div className={styles.tabs}>
@@ -33,35 +46,50 @@ export default function Hero() {
 
                     <div className={styles.searchForm}>
                         <div className={styles.formGroup}>
-                            <label>Type de bien</label>
+                            <label>Type de biens</label>
                             <select className={styles.select}>
-                                <option>Maison, Appartement...</option>
-                                <option>Maison</option>
                                 <option>Appartement</option>
+                                <option>Maison / villa</option>
                                 <option>Terrain</option>
+                                <option>Garage</option>
+                                <option>Bureau</option>
                             </select>
                         </div>
 
                         <div className={styles.formGroup}>
                             <label>Localité</label>
-                            <input type="text" placeholder="Entrez une localité" className={styles.input} />
+                            <div style={{ position: 'relative' }}>
+                                <input type="text" placeholder="Localité" className={styles.input} />
+                                <button
+                                    onClick={handleLocationClick}
+                                    style={{
+                                        position: 'absolute',
+                                        right: '10px',
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        border: 'none',
+                                        background: 'none',
+                                        cursor: 'pointer',
+                                        fontSize: '1.2rem',
+                                        color: '#666'
+                                    }}
+                                    title="Ma position"
+                                >
+                                    📍
+                                </button>
+                            </div>
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label>Rayon</label>
-                            <select className={styles.select}>
-                                <option>+ 0 km</option>
-                                <option>+ 5 km</option>
-                                <option>+ 10 km</option>
-                            </select>
+                            <label>Proximité 2km</label>
+                            {/* Simulating slider */}
+                            <input type="range" className={styles.input} />
                         </div>
 
                         <div className={styles.formGroup}>
-                            <label>Budget</label>
+                            <label>Prix</label>
                             <div className={styles.rangeInput}>
-                                <input type="number" placeholder="Min" className={styles.input} />
-                                <span>-</span>
-                                <input type="number" placeholder="Max" className={styles.input} />
+                                <input type="text" placeholder="0€ - 2,350,000€" className={styles.input} />
                             </div>
                         </div>
 

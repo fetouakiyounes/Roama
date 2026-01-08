@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className={styles.footer}>
             <div className={`container ${styles.container}`}>
                 <div className={styles.column}>
-                    <h3 className={styles.heading}>Selfhome.lu</h3>
+                    <h3 className={styles.heading}>Roama</h3>
                     <p>Le premier site immobilier sans commission au Luxembourg. Connectez-vous directement avec les propriétaires.</p>
                 </div>
 
@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
             <div className={styles.copyright}>
                 <div className="container">
-                    &copy; {new Date().getFullYear()} Selfhome.lu - Tous droits réservés.
+                    &copy; {new Date().getFullYear()} Roama - Tous droits réservés.
                 </div>
             </div>
         </footer>

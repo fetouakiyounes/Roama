@@ -1,0 +1,81 @@
+.section {
+    background-color: #87CBB9;
+    /* Teal color */
+    padding: 3rem 0;
+    color: white;
+    margin-top: 2rem;
+    /* Adding some wave/shape flair if possible, using simple gradient for now */
+    background: linear-gradient(175deg, #91D3C2 0%, #80C4B2 100%);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.content {
+    flex: 1;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    font-family: var(--font-heading);
+}
+
+.subtitle {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.list {
+    list-style: none;
+}
+
+.list li {
+    margin-bottom: 0.3rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+.list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    background-color: #222;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .list {
+        text-align: left;
+        display: inline-block;
+    }
+}

@@ -7,31 +7,31 @@ export default function Header() {
             <div className={`container ${styles.container}`}>
                 <div className={styles.logo}>
                     <Link href="/">
-                        <span className={styles.logoText}>self</span>
-                        <span className={styles.logoTextBold}>home.lu</span>
+                        <span className={styles.logoText}>Roa</span>
+                        <span className={styles.logoTextBold}>ma</span>
                     </Link>
                 </div>
 
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>
                         <li className={styles.navItem}>
-                            <Link href="#">Acheter</Link>
+                            <Link href="/acheter">Acheter</Link>
                         </li>
                         <li className={styles.navItem}>
-                            <Link href="#">Louer</Link>
+                            <Link href="/location-sansfrais-entre-particuliers">Louer</Link>
                         </li>
                         <li className={styles.navItem}>
-                            <Link href="#">Vendre</Link>
+                            <Link href="/avantages-vendeurs">Vendre</Link>
                         </li>
                         <li className={styles.navItem}>
-                            <Link href="#">Estimation</Link>
+                            <Link href="/avantages-vendeurs">Estimation</Link>
                         </li>
                     </ul>
                 </nav>
 
                 <div className={styles.authButtons}>
-                    <button className={styles.loginBtn}>S'identifier</button>
-                    <button className="btn btn-primary">S'inscrire</button>
+                    <Link href="/mon-compte" className={styles.loginBtn}>S'identifier</Link>
+                    <Link href="/mon-compte?register=true" className="btn btn-primary">S'inscrire</Link>
                 </div>
             </div>
         </header>

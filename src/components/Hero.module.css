@@ -1,24 +1,30 @@
 .hero {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 6rem 0;
+    background-color: #FDF3F0;
+    /* Pale salmon/pink background from screenshot */
+    padding: 8rem 0 12rem 0;
+    /* Extra padding at bottom for curve effect */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 600px;
-    background-image: url('https://images.unsplash.com/photo-1600596542815-e3289cab6f79?q=80&w=2600&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+    min-height: 700px;
+}
+
+/* Optional: Add a curve at the bottom using a pseudo-element like the original site */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: white;
+    clip-path: ellipse(60% 100% at 50% 100%);
 }
 
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    /* Removing dark overlay as the bg is now light */
+    display: none;
 }
 
 .container {
@@ -29,17 +35,26 @@
 }
 
 .title {
-    color: white;
+    color: var(--color-text-heading);
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    font-family: var(--font-heading);
+    text-shadow: none;
 }
 
 .subtitle {
     color: white;
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    background: #ED6C63;
+    /* Coral tag style */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transform: rotate(-2deg);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: none;
 }
 
 .searchWidget {

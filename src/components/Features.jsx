@@ -28,7 +28,7 @@ export default function Features() {
         <section className={`section ${styles.featuresSection}`}>
             <div className="container">
                 <div className={styles.header}>
-                    <h2>Pourquoi choisir Selfhome ?</h2>
+                    <h2>Pourquoi choisir Roama ?</h2>
                     <p>La solution la plus simple et économique pour votre projet immobilier.</p>
                 </div>
 
