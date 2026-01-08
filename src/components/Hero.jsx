@@ -89,7 +89,7 @@ export default function Hero() {
                         <div className={styles.formGroup}>
                             <label>Prix</label>
                             <div className={styles.rangeInput}>
-                                <input type="text" placeholder="0€ - 2,350,000€" className={styles.input} />
+                                <input type="text" placeholder="0 MAD - 25,000,000 MAD" className={styles.input} />
                             </div>
                         </div>
 
