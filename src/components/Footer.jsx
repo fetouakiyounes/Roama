@@ -6,7 +6,7 @@ export default function Footer() {
             <div className={`container ${styles.container}`}>
                 <div className={styles.column}>
                     <h3 className={styles.heading}>Roama</h3>
-                    <p>Le premier site immobilier sans commission au Luxembourg. Connectez-vous directement avec les propriétaires.</p>
+                    <p>Le premier site immobilier sans commission au Maroc. Connectez-vous directement avec les propriétaires.</p>
                 </div>
 
                 <div className={styles.column}>

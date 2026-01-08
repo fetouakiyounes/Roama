@@ -6,7 +6,7 @@ const BENEFITS = [
     {
         icon: <MdVisibility />,
         title: "Visibilité assurée",
-        desc: "Grâce à notre marketing et forte présence au Luxembourg, votre annonce atteint rapidement une large audience."
+        desc: "Grâce à notre marketing et forte présence au Maroc, votre annonce atteint rapidement une large audience."
     },
     {
         icon: <MdSmartToy />,

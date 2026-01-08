@@ -14,8 +14,8 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata = {
-  title: "Roama | Le n°1 de l’immobilier entre particuliers au Luxembourg",
-  description: "Immobilier sans commission au Luxembourg",
+  title: "Roama | Le n°1 de l’immobilier entre particuliers au Maroc",
+  description: "Immobilier sans commission au Maroc",
 };
 
 export default function RootLayout({ children }) {

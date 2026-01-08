@@ -20,7 +20,7 @@ const MOCK_PROPERTIES = [
     id: 2,
     type: 'Appartement',
     location: 'Gasperich',
-    address: 'Gasperich Luxembourg',
+    address: 'Gasperich Maroc',
     price: '567 000 €',
     area: '50 m²',
     beds: 1,
@@ -58,7 +58,7 @@ const MOCK_PROPERTIES = [
   {
     id: 5,
     type: 'Appartement',
-    location: 'Luxembourg-Centre',
+    location: 'Maroc-Centre',
     address: 'Avenue de la Liberté',
     price: '549 000 €',
     area: '60 m²',
@@ -107,7 +107,7 @@ export default function NewListings() {
                   </div>
                 </div>
               </div>
-              
+
               <div className={styles.details}>
                 <div className={styles.detailItem}>
                   <span>📏</span>
@@ -138,10 +138,10 @@ export default function NewListings() {
         <div className={styles.loadMore}>
           <button className={styles.loadMoreBtn}>Charger plus d'annonces</button>
         </div>
-        
+
         <div className={styles.categoryButtons}>
-            <button className={styles.catBtn}>🔍 Voir les biens en vente</button>
-            <button className={styles.catBtn}>🔍 Voir les biens en location</button>
+          <button className={styles.catBtn}>🔍 Voir les biens en vente</button>
+          <button className={styles.catBtn}>🔍 Voir les biens en location</button>
         </div>
       </div>
     </section>

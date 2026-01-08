@@ -22,7 +22,7 @@ export default function Hero() {
         <section className={styles.hero}>
             <div className={`container ${styles.container}`}>
                 <h1 className={styles.title}>
-                    Le portail n°1 de l’immobilier<br />au Luxembourg
+                    Le portail n°1 de l’immobilier<br />au Maroc
                 </h1>
                 <div className={styles.subtitle}>
                     ENTRE PARTICULIERS
