@@ -10,10 +10,14 @@ import styles from "./register.module.css";
 
 const RegisterPage = () => {
     const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
+        setError(""); // Clear previous errors
+
         const name = e.target[0].value;
         const email = e.target[1].value;
         const password = e.target[2].value;
@@ -37,11 +41,21 @@ const RegisterPage = () => {
                 setError("");
                 router.push("/login");
             } else {
-                setError("Erreur, veuillez réessayer");
+                // Try to read JSON error first
+                try {
+                    const data = await res.json();
+                    setError(data.error || "Erreur, veuillez réessayer");
+                    console.error("Server Error:", data.error);
+                } catch {
+                    setError("Erreur, veuillez réessayer");
+                    console.error("Unknown Server Error");
+                }
             }
         } catch (error) {
             setError("Erreur, veuillez réessayer");
-            console.log(error);
+            console.error("Fetch Error:", error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -76,8 +90,10 @@ const RegisterPage = () => {
                         <button
                             type="submit"
                             className={styles.submitBtn}
+                            disabled={isLoading}
+                            style={isLoading ? { opacity: 0.7, cursor: 'not-allowed' } : {}}
                         >
-                            S'inscrire
+                            {isLoading ? "Chargement..." : "S'inscrire"}
                         </button>
                     </form>
                     <div className={styles.footerText}>
