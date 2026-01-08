@@ -18,10 +18,14 @@ export const metadata = {
   description: "Immobilier sans commission au Maroc",
 };
 
+import Provider from "@/components/SessionProvider";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${montserrat.variable} ${robotoSlab.variable}`}>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
