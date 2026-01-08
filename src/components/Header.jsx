@@ -30,8 +30,8 @@ export default function Header() {
                 </nav>
 
                 <div className={styles.authButtons}>
-                    <Link href="/mon-compte" className={styles.loginBtn}>S'identifier</Link>
-                    <Link href="/mon-compte?register=true" className="btn btn-primary">S'inscrire</Link>
+                    <Link href="/login" className={styles.loginBtn}>S'identifier</Link>
+                    <Link href="/register" className="btn btn-primary">S'inscrire</Link>
                 </div>
             </div>
         </header>
