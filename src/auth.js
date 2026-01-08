@@ -3,8 +3,10 @@ import Credentials from "next-auth/providers/credentials"
 import dbConnect from "@/lib/db"
 import User from "@/models/User"
 import bcrypt from "bcryptjs"
+import { authConfig } from "@/auth.config"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+    ...authConfig,
     providers: [
         Credentials({
             credentials: {
@@ -37,23 +39,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
         }),
     ],
-    callbacks: {
-        async jwt({ token, user }) {
-            if (user) {
-                token.role = user.role
-                token.id = user._id
-            }
-            return token
-        },
-        async session({ session, token }) {
-            if (token) {
-                session.user.role = token.role
-                session.user.id = token.id
-            }
-            return session
-        },
-    },
-    pages: {
-        signIn: "/login",
-    },
 })
