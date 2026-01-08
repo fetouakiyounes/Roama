@@ -21,7 +21,7 @@ export default function QuickViewModal({ property, onClose }) {
     if (!property) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4 transition-opacity duration-300">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-50 p-4 transition-opacity duration-300">
             <div ref={modalRef} className="bg-white rounded-lg shadow-xl max-w-4xl w-full overflow-hidden flex flex-col md:flex-row relative animate-fade-in-up">
                 <button
                     onClick={onClose}

@@ -46,6 +46,8 @@
   position: relative;
   height: 250px;
   overflow: hidden;
+  display: block;
+  /* Ensure Link behaves as block */
 }
 
 .image {
@@ -79,7 +81,7 @@
   position: absolute;
   top: 1rem;
   left: 3.5rem;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
@@ -93,7 +95,7 @@
   left: 0;
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: white;
   display: flex;
   align-items: center;
@@ -185,26 +187,26 @@
 }
 
 .categoryButtons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .catBtn {
-    background: black;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  background: black;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
-    .categoryButtons {
-        flex-direction: column;
-    }
+  .categoryButtons {
+    flex-direction: column;
+  }
 }
