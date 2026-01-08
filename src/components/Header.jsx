@@ -1,7 +1,12 @@
+"use client";
+
 import Link from 'next/link';
+import { useSession, signOut } from "next-auth/react";
 import styles from './Header.module.css';
 
 export default function Header() {
+    const { data: session } = useSession();
+
     return (
         <header className={styles.header}>
             <div className={`container ${styles.container}`}>
@@ -30,8 +35,17 @@ export default function Header() {
                 </nav>
 
                 <div className={styles.authButtons}>
-                    <Link href="/login" className={styles.loginBtn}>S'identifier</Link>
-                    <Link href="/register" className="btn btn-primary">S'inscrire</Link>
+                    {session ? (
+                        <>
+                            <Link href="/mon-compte" className={styles.loginBtn}>Mon Compte</Link>
+                            <button onClick={() => signOut()} className="btn btn-primary">Déconnexion</button>
+                        </>
+                    ) : (
+                        <>
+                            <Link href="/login" className={styles.loginBtn}>S'identifier</Link>
+                            <Link href="/register" className="btn btn-primary">S'inscrire</Link>
+                        </>
+                    )}
                 </div>
             </div>
         </header>
