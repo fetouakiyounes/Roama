@@ -27,8 +27,10 @@ export const POST = async (request) => {
             status: 200, // Fixed status
         });
     } catch (err) {
-        return new NextResponse(err.message, {
+        console.error("Registration Error:", err);
+        return new NextResponse(JSON.stringify({ error: err.message }), {
             status: 500,
+            headers: { "Content-Type": "application/json" },
         });
     }
 };

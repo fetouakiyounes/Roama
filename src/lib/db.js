@@ -20,7 +20,7 @@ if (!cached) {
 
 async function dbConnect() {
     if (!MONGODB_URI) {
-        return null; // Graceful fallback if no URI
+        throw new Error("Please define the MONGODB_URI environment variable inside .env.local");
     }
 
     if (cached.conn) {
