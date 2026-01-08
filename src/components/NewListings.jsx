@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from './NewListings.module.css';
 
 const MOCK_PROPERTIES = [
@@ -136,12 +137,12 @@ export default function NewListings() {
         </div>
 
         <div className={styles.loadMore}>
-          <button className={styles.loadMoreBtn}>Charger plus d'annonces</button>
+          <Link href="/properties" className={styles.loadMoreBtn}>Charger plus d'annonces</Link>
         </div>
 
         <div className={styles.categoryButtons}>
-          <button className={styles.catBtn}>🔍 Voir les biens en vente</button>
-          <button className={styles.catBtn}>🔍 Voir les biens en location</button>
+          <Link href="/properties?type=sale" className={styles.catBtn}>🔍 Voir les biens en vente</Link>
+          <Link href="/properties?type=rent" className={styles.catBtn}>🔍 Voir les biens en location</Link>
         </div>
       </div>
     </section>
