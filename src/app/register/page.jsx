@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import styles from "./register.module.css";
 
 const RegisterPage = () => {
     const [error, setError] = useState("");
@@ -45,43 +46,43 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-[#F9F9F9]">
+        <div className={styles.pageWrapper}>
             <Header />
-            <div className="flex-grow flex items-center justify-center py-20 px-4">
-                <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-[#EAEAEA]">
-                    <h1 className="text-3xl font-bold mb-8 text-center text-[#3C3C3B] font-[family-name:var(--font-heading)]">Créer un compte</h1>
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <div className={styles.mainContent}>
+                <div className={styles.card}>
+                    <h1 className={styles.title}>Créer un compte</h1>
+                    <form onSubmit={handleSubmit} className={styles.form}>
                         <input
                             type="text"
                             placeholder="Nom d'utilisateur"
                             required
-                            className="w-full border border-gray-300 px-4 py-3 rounded focus:outline-none focus:border-[#ED6C63] focus:ring-1 focus:ring-[#ED6C63] text-[#242429]"
+                            className={styles.input}
                         />
                         <input
                             type="email"
                             placeholder="Email"
                             required
-                            className="w-full border border-gray-300 px-4 py-3 rounded focus:outline-none focus:border-[#ED6C63] focus:ring-1 focus:ring-[#ED6C63] text-[#242429]"
+                            className={styles.input}
                         />
                         <input
                             type="password"
                             placeholder="Mot de passe"
                             required
-                            className="w-full border border-gray-300 px-4 py-3 rounded focus:outline-none focus:border-[#ED6C63] focus:ring-1 focus:ring-[#ED6C63] text-[#242429]"
+                            className={styles.input}
                         />
 
-                        {error && <p className="text-red-500 text-sm text-center font-medium">{error}</p>}
+                        {error && <p className={styles.error}>{error}</p>}
 
                         <button
                             type="submit"
-                            className="w-full bg-[#ED6C63] text-white font-bold py-3 rounded hover:bg-[#fa8e86] transition-colors duration-200 mt-2"
+                            className={styles.submitBtn}
                         >
                             S'inscrire
                         </button>
                     </form>
-                    <div className="text-center mt-6 text-[#7E7E7E] text-sm">
+                    <div className={styles.footerText}>
                         Vous avez déjà un compte ?{" "}
-                        <Link href="/login" className="text-[#ED6C63] font-semibold hover:underline">
+                        <Link href="/login" className={styles.link}>
                             Se connecter
                         </Link>
                     </div>
